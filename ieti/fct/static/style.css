@@ -1,0 +1,19 @@
+/*Sidebar*/
+.sidebar{
+    height: 98vh;
+    position: absolute;
+    margin-left:0;
+    width:25rem;
+    background-color: yellow;
+}
+.sidebar > div{
+    height: 600px;
+    position: relative;
+    top:calc(50% - 300px);
+    background-color: blue;
+}
+/*Landing Page*/
+body > *{
+    margin-left: 27rem;
+    color:red
+}

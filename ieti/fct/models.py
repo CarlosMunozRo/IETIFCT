@@ -1,7 +1,6 @@
 from django.db import models
 
 # Create your models here.
-
 from tinymce import models as tinymce_models
 
 class TipoNodo(models.Model):
@@ -16,5 +15,8 @@ class Nodo(models.Model):
     siguiente = models.ManyToManyField('self', null=True, blank=True)
     ordern = models.IntegerField(default=1)
 
-
-
+    
+    
+class Abuelo(models.Model):
+    texto = models.CharField(max_length=150)
+    descripcion = models.CharField(max_length=150)
