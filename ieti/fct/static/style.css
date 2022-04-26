@@ -1,3 +1,16 @@
+/*All page*/
+body > *{
+    margin-left: 20vw;
+    color:red
+}
+
+/*Landing Page*/
+
+.landingContainer{
+    width: 79vw;
+    height: 97vh;
+    background-color: black;
+}
 /*Sidebar*/
 .sidebar{
     height: 98vh;
@@ -12,8 +25,4 @@
     top:calc(50% - 300px);
     background-color: blue;
 }
-/*Landing Page*/
-body > *{
-    margin-left: 27rem;
-    color:red
-}
+

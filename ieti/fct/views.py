@@ -1,8 +1,18 @@
 from django.shortcuts import render
-from django.template import loader
 from .models import *
 
 # Create your views here.
 
 def landingPage(request):
-	return render(request, 'landingPage.html')
+    contenido = Abuelo.objects.all()
+    contexto = {
+        'Contenidos':contenido,
+    }
+    return render(request,'landingPage.html',contexto)
+
+def pasos(request,nodoid):
+    nodo = Abuelo.objects.filter(pk=nodoid)
+    contexto = {
+        'NodoPadre': nodo,
+    }
+    return render(request,'wizard.html',contexto)

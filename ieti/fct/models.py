@@ -19,4 +19,6 @@ class Nodo(models.Model):
     
 class Abuelo(models.Model):
     texto = models.CharField(max_length=150)
-    descripcion = models.CharField(max_length=150)
+    link = models.CharField(max_length=150)
+    def __str__(self):
+        return self.texto

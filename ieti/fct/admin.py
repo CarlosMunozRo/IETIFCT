@@ -5,3 +5,4 @@ from .models import *
 
 admin.site.register(TipoNodo)
 admin.site.register(Nodo)
+admin.site.register(Abuelo)
