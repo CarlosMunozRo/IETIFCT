@@ -16,3 +16,4 @@ class NodoPadreAdmin(admin.ModelAdmin):
 admin.site.register(Nodo)
 admin.site.register(NodoPadre, NodoPadreAdmin)
 #admin.site.register(Orden)
+

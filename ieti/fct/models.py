@@ -1,7 +1,6 @@
 from django.db import models
 
 # Create your models here.
-
 from tinymce import models as tinymce_models
 
 
@@ -34,7 +33,6 @@ class Nodo(models.Model):
 
     def __str__(self):
         return self.nombre
-
 
 """ 
 class Orden(models.Model):

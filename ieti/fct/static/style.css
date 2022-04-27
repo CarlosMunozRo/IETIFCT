@@ -1,0 +1,28 @@
+/*All page*/
+body > *{
+    margin-left: 20vw;
+    color:red
+}
+
+/*Landing Page*/
+
+.landingContainer{
+    width: 79vw;
+    height: 97vh;
+    background-color: black;
+}
+/*Sidebar*/
+.sidebar{
+    height: 98vh;
+    position: absolute;
+    margin-left:0;
+    width:25rem;
+    background-color: yellow;
+}
+.sidebar > div{
+    height: 600px;
+    position: relative;
+    top:calc(50% - 300px);
+    background-color: blue;
+}
+
