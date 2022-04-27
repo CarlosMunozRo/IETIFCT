@@ -4,14 +4,14 @@ from .models import *
 # Create your views here.
 
 def landingPage(request):
-    contenido = Abuelo.objects.all()
+    contenido = NodoPadre.objects.all()
     contexto = {
         'Contenidos':contenido,
     }
     return render(request,'landingPage.html',contexto)
 
 def pasos(request,nodoid):
-    nodo = Abuelo.objects.filter(pk=nodoid)
+    nodo = NodoPadre.objects.filter(pk=nodoid)
     contexto = {
         'NodoPadre': nodo,
     }

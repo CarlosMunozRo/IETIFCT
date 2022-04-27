@@ -1,0 +1,9 @@
+<div class="headerContainer">
+    <a href="/">Home</a>
+    {% if request.user.is_authenticated %}
+        <p>{{request.user}}</p>
+    {% else %}
+        <p><a href="/">Login</a></p>
+    {% endif %}
+    
+</div>

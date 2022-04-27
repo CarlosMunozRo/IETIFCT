@@ -3,11 +3,15 @@
 {% block body_data %}
 <div class="landingContainer">
 
-    <ol>
-        {% for Titulo in Contenidos %}
-            <li><a href="pasos/{{Titulo.pk}}">{{Titulo.texto}}</a></li>
-        {% endfor %}
-    </ol>
+    <div class="landingContent">
+        <h2>A continuació teniu un índex per anar directament a la part del checklist que ús interessi</h2>
+        <ol>
+            {% for Titulo in Contenidos %}
+                <li><a href="pasos/{{Titulo.pk}}">{{Titulo.nombre}}</a></li>
+            {% endfor %}
+        </ol>
 
+    </div>
+    
 </div>
 {% endblock body_data %}
