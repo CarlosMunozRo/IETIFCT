@@ -3,6 +3,17 @@ from .models import *
 
 # Register your models here.
 
-admin.site.register(TipoNodo)
+class NodoInline(admin.TabularInline):
+    model = Nodo
+    extra = 1
+    ordering = ("orden",)
+
+class NodoPadreAdmin(admin.ModelAdmin):
+    inlines = [NodoInline]
+
+
+
 admin.site.register(Nodo)
-admin.site.register(Abuelo)
+admin.site.register(NodoPadre, NodoPadreAdmin)
+#admin.site.register(Orden)
+
