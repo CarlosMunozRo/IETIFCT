@@ -3,11 +3,19 @@
 {% block body_data %}
 <div class="landingContainer">
     <h1>NodoPadre</h1>
-    <ol>
-        {% for Titulo in Contenidos %}
-            <li><a href="pasos/{{Titulo.pk}}">{{Titulo.nombre}}</a></li>
+    {% for item, info in annotated_list %}
+        {% if info.open %}
+            <ol><li>
+        {% else %}
+            </li><li>
+        {% endif %}
+
+        {{ item }}
+
+        {% for close in info.close %}
+            </li></ol>
         {% endfor %}
-    </ol>
+    {% endfor %}
 
 </div>
 {% endblock body_data %}

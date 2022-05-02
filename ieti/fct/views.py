@@ -3,16 +3,30 @@ from .models import *
 
 # Create your views here.
 
+def buscar(nodos,nodoPadreId):
+    for nodo in nodos:
+        
+        if nodo['nodoId'] == nodoPadreId:
+            print(nodo['hijos'], " ",nodoPadreId)
+            return nodo['hijos']
+        else:
+            if buscar(nodo['hijos'],nodoPadreId)==True:
+                return False
+        
+
 def landingPage(request):
-    contenido = NodoPadre.objects.all()
+    contenido = Tema.objects.all()
     contexto = {
         'Contenidos':contenido,
     }
     return render(request,'landingPage.html',contexto)
 
 def pasos(request,nodoid):
-    nodo = NodoPadre.objects.filter(pk=nodoid)
+    tema = Tema.objects.get(pk=nodoid)
+
+
+
     contexto = {
-        'NodoPadre': nodo,
+        'annotated_list': Paso.get_annotated_list(Paso.objects.get(pk=tema.pasoInicial.pk)),
     }
     return render(request,'wizard.html',contexto)
