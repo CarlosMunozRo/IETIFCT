@@ -1,9 +1,17 @@
 <div class="headerContainer">
+    <div class="headerContent">
+        <img>
+    </div>
     <a href="/">Home</a>
     {% if request.user.is_authenticated %}
+    <div class="loginHeader">
         <p>{{request.user}}</p>
+        <p><a href="{% url 'logout' %}">Log out</a></p>
+    </div>
     {% else %}
-        <p><a href="/">Login</a></p>
+    <div class="loginHeader">
+        <p>{{request.user}}</p>
+        <p><a href="{% url 'login' %}">Login</a></p>
+    </div>
     {% endif %}
-    
 </div>

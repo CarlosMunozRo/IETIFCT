@@ -14,19 +14,20 @@ body > *{
 
 .headerContainer{
     min-height: 8vh;
-    background-color: #f2f2f2;
+    background-color: pink;
     position:sticky;
     left:0;
     margin-left:0;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
-.headerContainer > p{
-    margin: 0px;
-    margin-right: 40px;
-    position: absolute;
-    right: 0px;
+.headerContainer > a{
+    margin-left: auto;
+}
+.loginHeader{
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
 }
 /*Landing Page*/
 

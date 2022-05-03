@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import *
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
@@ -16,3 +17,7 @@ def pasos(request,nodoid):
         'NodoPadre': nodo,
     }
     return render(request,'wizard.html',contexto)
+
+
+def login(request):
+	return render(request, 'login.html')
