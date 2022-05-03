@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import *
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
@@ -23,10 +24,11 @@ def landingPage(request):
 
 def pasos(request,nodoid):
     tema = Tema.objects.get(pk=nodoid)
-
-
-
     contexto = {
         'annotated_list': Paso.get_annotated_list(Paso.objects.get(pk=tema.pasoInicial.pk)),
     }
     return render(request,'wizard.html',contexto)
+
+
+def login(request):
+	return render(request, 'login.html')

@@ -1,22 +1,101 @@
 /*All page*/
-body > *{
-    margin-left: 20vw;
-    color:red
+body {
+    color: #eee;
+    font-family: Lato, sans-serif;
+    line-height: 1.4;
+    font-size: 90%;
+    margin: 2rem;
 }
+body > *{
+    margin-left: 21vw;
+    color:black
+}
+/* Header */
 
+.headerContainer{
+    min-height: 8vh;
+    background-color: pink;
+    position:sticky;
+    left:0;
+    margin-left:0;
+    display: flex;
+    align-items: center;
+}
+.headerContainer > a{
+    margin-left: auto;
+}
+.loginHeader{
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+}
 /*Landing Page*/
 
 .landingContainer{
-    width: 79vw;
-    height: 97vh;
-    background-color: black;
+    width: 78.5vw;
+    height: 90vh;
+    display: flex;
+}
+.landingContent{
+    margin:auto;
+    padding: 80px;
+    border: solid 1px  #cccccc;
+    border-radius: 20px;
+    width: 60vw;
+    height: auto;
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+.landingContent > ol {
+    counter-reset: my-awesome-counter;
+    list-style: none;
+    padding-left: 40px;
+}
+.landingContent > ol li {
+    margin: 0 0 0.5rem 0;
+    counter-increment: my-awesome-counter;
+    position: relative;
+}
+.landingContent > ol li::before {
+    content: counter(my-awesome-counter);
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: absolute;
+    --size: 32px;
+    left: calc(-1 * var(--size) - 10px);
+    line-height: var(--size);
+    width: var(--size);
+    height: var(--size);
+    top: 0;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 2px 2px 0 lightblue;
+}
+.landingContent > ol > li > a{
+    border: solid 1px blue;
+    border-radius: 10px;
+    background-color:#3399ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    text-decoration: none;
+    color:black;
+    transition: 0.5s;
+}
+.landingContent > ol > li > a:hover{
+    background-color: #ccffff;
+}
+.landingContent > h2{
+    margin-bottom:60px;
 }
 /*Sidebar*/
 .sidebar{
-    height: 98vh;
+    height:90vh;
     position: absolute;
     margin-left:0;
-    width:25rem;
+    width:21vw;
     background-color: yellow;
 }
 .sidebar > div{
