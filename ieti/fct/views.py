@@ -22,10 +22,11 @@ def landingPage(request):
     }
     return render(request,'landingPage.html',contexto)
 
-def pasos(request,nodoid):
-    tema = Tema.objects.get(pk=nodoid)
+def pasos(request,temaid,pasoid):
+    tema = Tema.objects.get(id=temaid)
+    paso = Paso.objects.get(id=contenido.pasoInicial.id)
     contexto = {
-        'annotated_list': Paso.get_annotated_list(Paso.objects.get(pk=tema.pasoInicial.pk)),
+        'annotated_list': Paso.get_annotated_list(Paso.objects.get(id=tema.pasoInicial.id)),
     }
     return render(request,'wizard.html',contexto)
 
