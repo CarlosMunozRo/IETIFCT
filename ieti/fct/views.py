@@ -57,21 +57,22 @@ def pasos(request,temaid,pasoid):
             if paso.id == pasos[i][0].id:
                 try:
                     paso_ = pasos[i+1][0]
+                    nextPaso = paso_
                 except:
                     pass
 
                 paso_level = pasos[i][1]['level']
 
-                nextPaso = paso_
+
 
             if firstLevel:
                 if paso_level == pasos[i][1]['level']:
                     try:
                         paso_ = pasos[i][0]
+                        prevPaso = paso_
                     except:
                         pass
 
-                    prevPaso = paso_
             else:
                 firstLevel = True
 
