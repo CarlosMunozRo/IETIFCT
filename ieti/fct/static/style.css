@@ -107,3 +107,7 @@ body > *{
 
 ol { counter-reset: item }
 li{ display: block }
+
+li.active{
+    background-color: #ccffff;
+}

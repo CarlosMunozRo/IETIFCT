@@ -50,7 +50,9 @@ def pasos(request,temaid,pasoid):
     prevPaso = ""
 
     paso_level = 0
-    firstLevel = False
+    selfFound = False
+    selfFoundCount = 0
+    firstLevel = True
 
     if paso.tipo == 'PR':
         for i in range(len(pasos)):
@@ -63,18 +65,20 @@ def pasos(request,temaid,pasoid):
 
                 paso_level = pasos[i][1]['level']
 
+                selfFound = True
+                
+            if selfFound:
+                selfFoundCount += 1
+            
 
-
-            if firstLevel:
+            if firstLevel and selfFound and selfFoundCount > 1:
                 if paso_level == pasos[i][1]['level']:
                     try:
                         paso_ = pasos[i][0]
                         prevPaso = paso_
                     except:
                         pass
-
-            else:
-                firstLevel = True
+                    firstLevel = False
 
     else:
         for i in range(len(pasos)):
