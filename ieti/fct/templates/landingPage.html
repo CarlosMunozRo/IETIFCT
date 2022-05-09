@@ -4,11 +4,14 @@
 <div class="landingContainer">
     <div class="landingContent">
         <h2>A continuació teniu un índex per anar directament a la part del checklist que ús interessi</h2>
-        <ol>
-            {% for Titulo in Contenidos %}
-                <li><a href="{{Titulo.pk}}/">{{Titulo.nombre}}</a></li>
-            {% endfor %}
-        </ol>
+        <div class="containerTemas">
+            <div class="row">
+                {% for Titulo in Contenidos %}
+                <div class="temasLanding col-4 px-5 p-4 square d-flex justify-content-center align-middle " ><a class="btn btn-primary d-flex w-100 h-100 justify-content-center align-items-center" href="{{Titulo.pk}}/{{Titulo.pasoInicial.pk}}">{{Titulo.nombre}}</a></div>
+                {% endfor %}
+            </div>
+        </div>
+        
     </div>
 </div>
 {% endblock body_data %}
