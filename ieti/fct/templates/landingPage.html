@@ -6,7 +6,11 @@
         <h2>A continuació teniu un índex per anar directament a la part del checklist que ús interessi</h2>
         <ol>
             {% for Titulo in Contenidos %}
-                <li><a href="{{Titulo.id}}/{{Titulo.pasoInicial.id}}">{{Titulo.nombre}}</a></li>
+                
+                {% if Titulo.pasoInicial.id %}
+                    <li><a href="{{Titulo.id}}/{{Titulo.pasoInicial.id}}">{{Titulo.nombre}}</a></li>
+                {% endif %}
+                    
             {% endfor %}
         </ol>
     </div>

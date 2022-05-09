@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .models import *
 from django.views.decorators.csrf import csrf_exempt
+import random
 
 # Create your views here.
 
@@ -10,7 +11,6 @@ def buscar(nodos,nodoPadreId):
     for nodo in nodos:
         
         if nodo['nodoId'] == nodoPadreId:
-            print(nodo['hijos'], " ",nodoPadreId)
             return nodo['hijos']
         else:
             if buscar(nodo['hijos'],nodoPadreId)==True:
@@ -42,11 +42,64 @@ def pasos(request,temaid,pasoid):
     except:
         return HttpResponse("El tema not tiene paso inicial")
 
+    pasos = Paso.get_annotated_list(Paso.objects.get(id=tema.pasoInicial.id))
+
+
+    #TEMPORAL
+    nextPaso = ""
+    prevPaso = ""
+
+    paso_level = 0
+    firstLevel = False
+
+    if paso.tipo == 'PR':
+        for i in range(len(pasos)):
+            if paso.id == pasos[i][0].id:
+                try:
+                    paso_ = pasos[i+1][0]
+                except:
+                    pass
+
+                paso_level = pasos[i][1]['level']
+
+                nextPaso = paso_
+
+            if firstLevel:
+                if paso_level == pasos[i][1]['level']:
+                    try:
+                        paso_ = pasos[i][0]
+                    except:
+                        pass
+
+                    prevPaso = paso_
+            else:
+                firstLevel = True
+
+    else:
+        for i in range(len(pasos)):
+            if paso.id == pasos[i][0].id:
+                try:
+                    paso_ = pasos[i+1][0]
+                    nextPaso = paso_
+                except:
+                    pass
+
+                
+                try:
+                    paso_ = pasos[i-1][0]
+                    prevPaso = paso_
+                except:
+                    pass
+
+
 
     contexto = {
-        'annotated_list': Paso.get_annotated_list(Paso.objects.get(id=tema.pasoInicial.id)),
+        'annotated_list': pasos,
         'paso': paso,
         'tema': tema,
+        'adelante': nextPaso,
+        'atras': prevPaso,
+        'mainChild': tema.pasoInicial,
     }
     return render(request,'wizard.html',contexto)
 
