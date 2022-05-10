@@ -6,15 +6,29 @@ body {
     font-size: 90%;
     margin: 2rem;
 }
-body > *{
-    margin-left: 21vw;
-    color:black
+.row{
+    --bs-gutter-x: 0rem !important;
 }
+/* button{
+    border-color: #3498db;
+    color: #fff;
+    box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+    -webkit-transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out;
+    cursor: pointer;
+} */
+.btn-primary{
+    color:rgb(022,065,148)
+}
+/* button:hover {
+    box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+    color:black;
+} */
 /* Header */
 
 .headerContainer{
     min-height: 8vh;
-    background-color: pink;
+    background-color: #f2f2f2;
     position:sticky;
     left:0;
     margin-left:0;
@@ -38,58 +52,35 @@ body > *{
 }
 .landingContent{
     margin:auto;
+    padding: 90px;
     padding: 80px;
     border: solid 1px  #cccccc;
     border-radius: 20px;
+    width: 70vw;
     width: 60vw;
     height: auto;
     background-color: #f2f2f2;
     text-align: center;
-}
-
-.landingContent > ol {
-    counter-reset: my-awesome-counter;
-    list-style: none;
-    padding-left: 40px;
-}
-.landingContent > ol li {
-    margin: 0 0 0.5rem 0;
-    counter-increment: my-awesome-counter;
-    position: relative;
-}
-.landingContent > ol li::before {
-    content: counter(my-awesome-counter);
-    font-size: 1.5rem;
-    font-weight: bold;
-    position: absolute;
-    --size: 32px;
-    left: calc(-1 * var(--size) - 10px);
-    line-height: var(--size);
-    width: var(--size);
-    height: var(--size);
-    top: 0;
-    border-radius: 50%;
-    text-align: center;
-    box-shadow: 2px 2px 0 lightblue;
-}
-.landingContent > ol > li > a{
-    border: solid 1px blue;
-    border-radius: 10px;
-    background-color:#3399ff;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 40px;
-    text-decoration: none;
-    color:black;
-    transition: 0.5s;
+    flex-direction: column;
 }
-.landingContent > ol > li > a:hover{
-    background-color: #ccffff;
+.containerTemas{
+    width: 75%;
+    display: flex;
+    align-self: center;
 }
-.landingContent > h2{
-    margin-bottom:60px;
+.square:before{
+    content: "";
+    display: block;
+    padding-top: 100%;
 }
+.temasLanding > a:hover{
+    background-color: red;
+    border-color: red;
+    /*background: url("images/card-front.jpg") no-repeat;*/
+}
+
 /*Sidebar*/
 .sidebar{
     height:90vh;
@@ -107,7 +98,7 @@ body > *{
 
 ol { counter-reset: item }
 li{ display: block }
-
+li:before { content: counters(item, ".") " "; counter-increment: item }
 li.active{
     background-color: #ccffff;
     border-radius: 10px;
@@ -128,3 +119,31 @@ li.active{
     font-size: 17px;
     font-weight:700;
 }
+
+/* Login */
+.loginContainer{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+
+}
+.loginContent{
+    margin:15vh auto auto auto;
+    padding: 80px;
+    border: solid 1px  #cccccc;
+    border-radius: 20px;
+    width: 40vw;
+    height: auto;
+    background-color: #f2f2f2;
+    text-align: center;
+}
+.loginTitle{
+    margin-bottom: 5vh;
+}
+.formInput{
+    margin: auto ;
+    width: 60% !important;
+}
+li.active{
+    background-color: #ccffff;
+} 
