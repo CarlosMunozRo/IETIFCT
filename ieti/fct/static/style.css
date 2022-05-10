@@ -110,3 +110,8 @@ li:before { content: counters(item, ".") " "; counter-increment: item }
 .loginTitle{
     margin-bottom: 5vh;
 }
+
+.formInput{
+    margin: auto ;
+    width: 60% !important;
+}
