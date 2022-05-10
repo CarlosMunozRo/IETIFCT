@@ -32,7 +32,7 @@ body > *{
 /*Landing Page*/
 
 .landingContainer{
-    width: 100%;
+    width: 78.5vw;
     height: 90vh;
     display: flex;
 }
