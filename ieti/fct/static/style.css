@@ -110,4 +110,21 @@ li{ display: block }
 
 li.active{
     background-color: #ccffff;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+
+
+.sidebar a{
+    color:black;
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.sidebar a.active{
+    color:black;
+    font-size: 17px;
+    font-weight:700;
 }

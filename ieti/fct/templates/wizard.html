@@ -18,7 +18,7 @@
 
                 
 
-                <a href="/{{tema.id}}/{{item.id}}">{{item.nombre}}</a>
+                <a href="/{{tema.id}}/{{item.id}}" class="{% ifequal paso.id item.id %}active{% endifequal %}">{{item.nombre}}</a>
 
                 {% for close in info.close %}
                     </li></ol>
