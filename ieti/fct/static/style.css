@@ -115,3 +115,7 @@ li:before { content: counters(item, ".") " "; counter-increment: item }
     margin: auto ;
     width: 60% !important;
 }
+
+li.active{
+    background-color: #ccffff;
+}

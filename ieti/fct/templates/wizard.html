@@ -1,21 +1,79 @@
 {% extends 'base.html' %}
 {% block title %}Wizard{% endblock title%}
 {% block body_data %}
-<div class="landingContainer">
-    <h1>NodoPadre</h1>
-    {% for item, info in annotated_list %}
-        {% if info.open %}
-            <ol><li>
-        {% else %}
-            </li><li>
-        {% endif %}
 
-        {{ item }}
 
-        {% for close in info.close %}
-            </li></ol>
-        {% endfor %}
-    {% endfor %}
+<div class="row">
+    <div class="col-md-3">
+        <div class="sidebar">
+            {% for item, info in annotated_list %}
+                {% if info.open %}
+                    
+                    <ol ><li class="{% ifequal paso.id item.id %}active{% endifequal %} item-sidebar">
+                    
+
+                {% else %}
+                    </li><li class="{% ifequal paso.id item.id %}active{% endifequal %}"><a href="">
+                {% endif %}
+
+                
+
+                <a href="/{{tema.id}}/{{item.id}}">{{item.nombre}}</a>
+
+                {% for close in info.close %}
+                    </li></ol>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="col-md-9">
+        <div class="landingContainer">
+            <div class="landingContent">
+                <h2>{{ paso.nombre }}</h2>
+                <div class="paso-text">{{ paso.texto|safe }}</div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        {% if paso.tipo == 'PR' %}
+                            <a class="btn btn-secondary" href="/{{tema.id}}/{{atras.id}}">No</a>
+                        {% else %}
+                            <a class="btn btn-secondary" href="/{{tema.id}}/{{atras.id}}">Atras</a>
+                        {% endif %}
+
+                        
+                    </div>
+                    <div class="col-md-6">
+
+                        
+                        
+                        {% if adelante %}
+                            {% if paso.tipo == 'PR' %}
+                                <a class="btn btn-success" href="/{{tema.id}}/{{adelante.id}}">Si</a>
+                            {% else %}
+                                <a class="btn btn-success" href="/{{tema.id}}/{{adelante.id}}">Siguiente</a>
+                            {% endif %}
+                        {% else %}
+                            {% ifnotequal mainChild.id paso.id %}
+                                <a class="btn btn-success" href="/">Finalizar</a>
+                            {% else %}
+                                <a class="btn btn-success" href="/{{tema.id}}/{{adelante.id}}">Siguiente</a>
+                            {% endifnotequal %}
+
+                        {% endif %}
+                        
+                            
+
+
+                    </div>
+                </div>
+                    
+
+            </div>    
+        
+        </div>
+    </div>
 
 </div>
+
 {% endblock body_data %}
