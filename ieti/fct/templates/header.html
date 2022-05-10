@@ -1,17 +1,24 @@
-<div class="headerContainer">
-    <div class="headerContent">
-        <img>
+<div class="headerContainer row ">
+    <div class="col-4 align-self-start">
+        <img src="static/ietilogo.jpeg" alt="My image" width="75px" height="75px">
     </div>
-    <a href="/">Home</a>
+    <div class="col-4 d-flex justify-content-center">
+        <a class="align-self-center" href="/"> <button class="btn btn-primary">Home</button></a>
+    </div>
     {% if request.user.is_authenticated %}
-    <div class="loginHeader">
-        <p>{{request.user}}</p>
-        <p><a href="{% url 'logout' %}">Log out</a></p>
+    <div class="col-4">
+        <div class="row h-100 d-flex justify-content-end">
+            <p class="col-3 align-self-center mb-0">{{request.user}}</p>
+            <a class="col-3 align-self-center" href="{% url 'logout' %}"><button class="btn btn-primary">Log out</button></a>
+        </div>
+        
     </div>
     {% else %}
-    <div class="loginHeader">
-        <p>{{request.user}}</p>
-        <p><a href="{% url 'login' %}">Login</a></p>
+    <div class="col-4">
+        <div class="row h-100 d-flex justify-content-end">
+            <p class="col-4 align-self-center mb-0">{{request.user}}</p>
+            <a class="col-2 align-self-center" href="{% url 'login' %}"><button class="btn btn-primary">Login</button></a>
+        </div>
     </div>
     {% endif %}
 </div>
