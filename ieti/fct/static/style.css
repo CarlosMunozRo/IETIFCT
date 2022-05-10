@@ -98,11 +98,16 @@ body {
 
 ol { counter-reset: item }
 li{ display: block }
-li:before { content: counters(item, ".") " "; counter-increment: item }
+
+
 li.active{
     background-color: #ccffff;
     border-radius: 10px;
     padding: 5px;
+}
+
+.sidebar{
+    overflow-y: scroll;
 }
 
 
