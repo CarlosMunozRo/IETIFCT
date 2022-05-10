@@ -6,67 +6,86 @@ body {
     font-size: 90%;
     margin: 2rem;
 }
-.row{
-    --bs-gutter-x: 0rem !important;
+body > *{
+    margin-left: 21vw;
+    color:black
 }
-/* button{
-    border-color: #3498db;
-    color: #fff;
-    box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
-    -webkit-transition: all 150ms ease-in-out;
-    transition: all 150ms ease-in-out;
-    cursor: pointer;
-} */
-.btn-primary{
-    color:rgb(022,065,148)
-}
-/* button:hover {
-    box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
-    color:black;
-} */
-
 /* Header */
 
 .headerContainer{
-    background-color: lightgray;
     min-height: 8vh;
+    background-color: pink;
+    position:sticky;
+    left:0;
+    margin-left:0;
+    display: flex;
+    align-items: center;
 }
-
+.headerContainer > a{
+    margin-left: auto;
+}
+.loginHeader{
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+}
 /*Landing Page*/
 
 .landingContainer{
-    width: 100vw;
+    width: 78.5vw;
     height: 90vh;
     display: flex;
 }
 .landingContent{
     margin:auto;
-    padding: 90px;
+    padding: 80px;
     border: solid 1px  #cccccc;
     border-radius: 20px;
-    width: 70vw;
+    width: 60vw;
     height: auto;
     background-color: #f2f2f2;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-.containerTemas{
-    width: 75%;
-    display: flex;
-    align-self: center;
 }
 
-.square:before{
-    content: "";
-    display: block;
-    padding-top: 100%;  /* initial ratio of 1:1*/
+.landingContent > ol {
+    counter-reset: my-awesome-counter;
+    list-style: none;
+    padding-left: 40px;
 }
-.temasLanding > a:hover{
-    background-color: red;
-    border-color: red;
-    /*background: url("images/card-front.jpg") no-repeat;*/
+.landingContent > ol li {
+    margin: 0 0 0.5rem 0;
+    counter-increment: my-awesome-counter;
+    position: relative;
+}
+.landingContent > ol li::before {
+    content: counter(my-awesome-counter);
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: absolute;
+    --size: 32px;
+    left: calc(-1 * var(--size) - 10px);
+    line-height: var(--size);
+    width: var(--size);
+    height: var(--size);
+    top: 0;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 2px 2px 0 lightblue;
+}
+.landingContent > ol > li > a{
+    border: solid 1px blue;
+    border-radius: 10px;
+    background-color:#3399ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    text-decoration: none;
+    color:black;
+    transition: 0.5s;
+}
+.landingContent > ol > li > a:hover{
+    background-color: #ccffff;
 }
 .landingContent > h2{
     margin-bottom:60px;
@@ -88,33 +107,6 @@ body {
 
 ol { counter-reset: item }
 li{ display: block }
-li:before { content: counters(item, ".") " "; counter-increment: item }
-
-/* lOGIN */
-.loginContainer{
-    width: 100vw;
-    height: 90vh;
-    display: flex;
-    
-}
-.loginContent{
-    margin:15vh auto auto auto;
-    padding: 80px;
-    border: solid 1px  #cccccc;
-    border-radius: 20px;
-    width: 40vw;
-    height: auto;
-    background-color: #f2f2f2;
-    text-align: center;
-}
-.loginTitle{
-    margin-bottom: 5vh;
-}
-
-.formInput{
-    margin: auto ;
-    width: 60% !important;
-}
 
 li.active{
     background-color: #ccffff;
