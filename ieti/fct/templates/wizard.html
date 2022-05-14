@@ -3,77 +3,63 @@
 {% block body_data %}
 
 
-<div class="row">
-    <div class="col-md-3">
-        <div class="sidebar">
-            {% for item, info in annotated_list %}
-                {% if info.open %}
-                    
-                    <ol ><li class="{% ifequal paso.id item.id %}active{% endifequal %} item-sidebar">
-                    
+<section>
+    
+    <div class="sidebar">
 
+
+        {% for item, info in annotated_list %}
+            {% if info.open %}
+                <ul ><li class=" item-sidebar">
+            {% else %}
+                </li><li class=""><a href="">
+            {% endif %}
+
+                <div class="{% ifequal paso.id item.id %}active{% endifequal %}"><a href="/{{tema.id}}/{{item.id}}" class="">{{item.nombre}}</a></div>
+
+            {% for close in info.close %}
+                </li></ul>
+            {% endfor %}
+        {% endfor %}
+
+    </div>
+    <div class="wizard">
+
+        <h1>{{ paso.nombre }}</h1>
+        {{ paso.texto|safe }}
+
+        <div class="row">
+            <div class="col-md-6">
+
+                {% if paso.tipo == 'PR' %}
+                    <a class="btn btn-secondary" href="/{{tema.id}}/{{atras.id}}">No</a>
                 {% else %}
-                    </li><li class="{% ifequal paso.id item.id %}active{% endifequal %}"><a href="">
+                    <a class="btn btn-secondary" href="/{{tema.id}}/{{atras.id}}">Atras</a>
                 {% endif %}
 
-                
+            </div>
+            <div class="col-md-6">
 
-                <a href="/{{tema.id}}/{{item.id}}" class="{% ifequal paso.id item.id %}active{% endifequal %}">{{item.nombre}}</a>
+                {% if adelante %}
+                {% if paso.tipo == 'PR' %}
+                    <a class="btn btn-success" href="/{{tema.id}}/{{adelante.id}}">Si</a>
+                {% else %}
+                    <a class="btn btn-success" href="/{{tema.id}}/{{adelante.id}}">Siguiente</a>
+                {% endif %}
+                {% else %}
+                {% ifnotequal mainChild.id paso.id %}
+                    <a class="btn btn-success" href="/">Finalizar</a>
+                {% else %}
+                    <a class="btn btn-success" href="/{{tema.id}}/{{adelante.id}}">Siguiente</a>
+                {% endifnotequal %}
+                {% endif %}
 
-                {% for close in info.close %}
-                    </li></ol>
-                {% endfor %}
-            {% endfor %}
+            </div>
         </div>
+
     </div>
 
-    <div class="col-md-9">
-        <div class="landingContainer">
-            <div class="landingContent">
-                <h2>{{ paso.nombre }}</h2>
-                <div class="paso-text">{{ paso.texto|safe }}</div>
-                
-                <div class="row">
-                    <div class="col-md-6">
-                        {% if paso.tipo == 'PR' %}
-                            <a class="btn btn-secondary" href="/{{tema.id}}/{{atras.id}}">No</a>
-                        {% else %}
-                            <a class="btn btn-secondary" href="/{{tema.id}}/{{atras.id}}">Atras</a>
-                        {% endif %}
+</section>
 
-                        
-                    </div>
-                    <div class="col-md-6">
-
-                        
-                        
-                        {% if adelante %}
-                            {% if paso.tipo == 'PR' %}
-                                <a class="btn btn-success" href="/{{tema.id}}/{{adelante.id}}">Si</a>
-                            {% else %}
-                                <a class="btn btn-success" href="/{{tema.id}}/{{adelante.id}}">Siguiente</a>
-                            {% endif %}
-                        {% else %}
-                            {% ifnotequal mainChild.id paso.id %}
-                                <a class="btn btn-success" href="/">Finalizar</a>
-                            {% else %}
-                                <a class="btn btn-success" href="/{{tema.id}}/{{adelante.id}}">Siguiente</a>
-                            {% endifnotequal %}
-
-                        {% endif %}
-                        
-                            
-
-
-                    </div>
-                </div>
-                    
-
-            </div>    
-        
-        </div>
-    </div>
-
-</div>
 
 {% endblock body_data %}

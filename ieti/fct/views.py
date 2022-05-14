@@ -4,6 +4,7 @@ from django.shortcuts import render
 from .models import *
 from django.views.decorators.csrf import csrf_exempt
 import random
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -28,6 +29,7 @@ def landingPage(request):
 
     return render(request,'landingPage.html',contexto)
 
+@login_required(login_url='/login')
 def pasos(request,temaid,pasoid):
 
 

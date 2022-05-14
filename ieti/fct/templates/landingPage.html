@@ -1,16 +1,31 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Landing Page{% endblock title%}
 {% block body_data %}
-<div class="landingContainer">
-    <div class="landingContent">
-        <h2>A continuació teniu un índex per anar directament a la part del checklist que ús interessi</h2>
-        <div class="containerTemas">
-            <div class="row">
-                {% for Titulo in Contenidos %}
-                <div class="temasLanding col-4 px-5 p-4 square d-flex justify-content-center align-middle " ><a class="btn btn-primary d-flex w-100 h-100 justify-content-center align-items-center" href="{{Titulo.pk}}/{{Titulo.pasoInicial.pk}}">{{Titulo.nombre}}</a></div>
-                {% endfor %}
-            </div>
+
+<section class="container">
+    
+    <h2 class="text-center">A continuació teniu un índex per anar directament a la part del checklist que ús interessi</h2>
+
+    <div class="row">
+
+        {% for Tema in Contenidos %}
+
+        <div class="col-md-4 spacing-between">
+            <a class="tema-link" href="{{Tema.pk}}/{{Tema.pasoInicial.pk}}">
+                <div class="tema-container" style="{% if Tema.imagenDestacada %}background-image:url('{{Tema.imagenDestacada.url}}');{% else %}background-image:url('{% static 'img/placeholder.jpg' %}');{% endif %}">
+                    <span>
+                        {{Tema.nombre}}
+                    </span>
+                </div>
+            </a>
         </div>
+
+        {% endfor %}
+
     </div>
-</div>
+
+</section>
+
+
 {% endblock body_data %}
