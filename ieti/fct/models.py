@@ -1,6 +1,14 @@
 from django.db import models
 from treebeard.mp_tree import MP_Node
 import os
+from django.db import models
+from django.contrib.auth.models import AbstractUser
+
+
+class User(AbstractUser):
+    email = models.EmailField('email address', unique=True)
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username']
 
 def get_temas_images_path(instance, filename):
     return 'temas/{0}/{1}'.format(instance.nombre, filename)
@@ -33,4 +41,7 @@ class Paso(MP_Node):
 
     def __str__(self):
         return self.nombre
+
+
+
 
