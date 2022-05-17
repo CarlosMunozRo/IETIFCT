@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-vpqn@*n4g*!bk+6f^=!n^2e!fs!es9f=36t1ct4qfkbnve5ft^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ietifct.ml']
 
 
 # Application definition
