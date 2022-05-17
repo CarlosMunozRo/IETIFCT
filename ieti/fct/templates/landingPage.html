@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Landing Page{% endblock title%}
+{% block body_styles %}home{% endblock body_styles%}
 {% block body_data %}
 
-<section class="container">
+<section class="container" style="padding-top: 50px;">
     
+    <div class="loader"><img src="{% static 'img/logo.png' %}" alt=""></div>
+
     <h2 class="text-center">A continuació teniu un índex per anar directament a la part del checklist que ús interessi</h2>
 
     <div class="row">

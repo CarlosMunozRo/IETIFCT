@@ -5,6 +5,10 @@ import os
 def get_temas_images_path(instance, filename):
     return 'temas/{0}/{1}'.format(instance.nombre, filename)
 
+def get_pasos_images_path(instance, filename):
+    
+    return 'temas/{0}/{1}'.format(instance.nombre, filename)
+
 # Create your models here.
 from tinymce import models as tinymce_models
 
@@ -30,6 +34,8 @@ class Paso(MP_Node):
         choices=TipoNodo.choices,
         default=TipoNodo.PREGUNTA,
     )
+
+    imagenDestacada = models.ImageField(upload_to=get_pasos_images_path, null=True, blank=True)
 
     def __str__(self):
         return self.nombre

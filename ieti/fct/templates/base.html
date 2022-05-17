@@ -15,14 +15,14 @@
     <script src="{% static 'assets/js/script.js' %}"></script>
 
 </head>
-<body>
+<body class="{% block body_styles %}{% endblock body_styles%}">
 
-    <div class="loader"><img src="{% static 'img/logo.png' %}" alt=""></div>
+
 
     {% include 'header.html' %}
     {% block body_data %}{% endblock body_data %}
 
-    <div class="footer-basic">
+    <!-- <div class=" footer-basic">
         <footer>
             <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
             <ul class="list-inline">
@@ -34,7 +34,7 @@
             </ul>
             <p class="copyright">Company Name © 2018</p>
         </footer>
-    </div>
+    </div> -->
 
     {% block js %}{% endblock js %}
     
