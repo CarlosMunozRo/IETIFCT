@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% block title %}Wizard{% endblock title%}
+{% block body_styles %}wizard-body{% endblock body_styles%}
 {% block body_data %}
 
 
-<section>
+<section class="d-flex">
     
     <div class="sidebar">
 
@@ -25,35 +26,67 @@
     </div>
     <div class="wizard">
 
-        <h1>{{ paso.nombre }}</h1>
-        {{ paso.texto|safe }}
 
-        <div class="row">
-            <div class="col-md-6">
 
-                {% if paso.tipo == 'PR' %}
-                    <a class="btn btn-secondary" href="/{{tema.id}}/{{atras.id}}">No</a>
-                {% else %}
-                    <a class="btn btn-secondary" href="/{{tema.id}}/{{atras.id}}">Atras</a>
-                {% endif %}
+        <div class="wizard-container">
+            <h1>{{ paso.nombre }}</h1>
+        
+            {% if paso.imagenDestacada %}
+            <div class="row">
+                <div class="col-md-6">
+                    {{ paso.texto|safe }}
+                </div>
+                <div class="col-md-6">
+                    <img src="{{ paso.imagenDestacada.url }}" class="img-fluid" alt="">
+                </div>
+            </div>
+            {% else %}
+            <div class="row">
+
+                <div class="col-md-12">
+                    {{ paso.texto|safe }}
+                </div>
 
             </div>
-            <div class="col-md-6">
+            {% endif %}
+                
 
-                {% if adelante %}
-                {% if paso.tipo == 'PR' %}
-                    <a class="btn btn-success" href="/{{tema.id}}/{{adelante.id}}">Si</a>
-                {% else %}
-                    <a class="btn btn-success" href="/{{tema.id}}/{{adelante.id}}">Siguiente</a>
-                {% endif %}
-                {% else %}
-                {% ifnotequal mainChild.id paso.id %}
-                    <a class="btn btn-success" href="/">Finalizar</a>
-                {% else %}
-                    <a class="btn btn-success" href="/{{tema.id}}/{{adelante.id}}">Siguiente</a>
-                {% endifnotequal %}
-                {% endif %}
 
+
+
+
+
+
+
+
+            <div class="row wizard-btn">
+                <div class="col-md-6 text-center">
+                    {% if atras %}
+                        {% if paso.tipo == 'PR' %}
+                            <a class="btn btn-secondary" href="/{{tema.id}}/{{atras.id}}">No</a>
+                        {% else %}
+                            <a class="btn btn-secondary" href="/{{tema.id}}/{{atras.id}}">Atras</a>
+                        {% endif %}
+                    {% endif %}
+
+                </div>
+                <div class="col-md-6 text-center">
+
+                    {% if adelante %}
+                        {% if paso.tipo == 'PR' %}
+                            <a class="btn btn-success" href="/{{tema.id}}/{{adelante.id}}">Si</a>
+                        {% else %}
+                            <a class="btn btn-success" href="/{{tema.id}}/{{adelante.id}}">Siguiente</a>
+                        {% endif %}
+                        {% else %}
+                        {% ifnotequal mainChild.id paso.id %}
+                            <a class="btn btn-success" href="/">Finalizar</a>
+                        {% else %}
+                            <a class="btn btn-success" href="/{{tema.id}}/{{adelante.id}}">Siguiente</a>
+                        {% endifnotequal %}
+                    {% endif %}
+
+                </div>
             </div>
         </div>
 
