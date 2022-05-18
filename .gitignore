@@ -7,3 +7,4 @@ db.sqlite3
 *.jpg
 *.jpeg
 migrations/
+ieti/fct/migrations/0003_paso_imagendestacada.py
