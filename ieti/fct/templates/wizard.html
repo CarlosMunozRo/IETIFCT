@@ -61,7 +61,9 @@
 
             <div class="row wizard-btn">
                 <div class="col-md-6 text-center">
-                    {% if atras %}
+                    {% if atras == "" %}
+                    <a class="btn btn-success" href="/">Finalizar</a>
+                    {% else %}
                         {% if paso.tipo == 'PR' %}
                             <a class="btn btn-secondary" href="/{{tema.id}}/{{atras.id}}">No</a>
                         {% else %}
@@ -72,18 +74,22 @@
                 </div>
                 <div class="col-md-6 text-center">
 
-                    {% if adelante %}
-                        {% if paso.tipo == 'PR' %}
-                            <a class="btn btn-success" href="/{{tema.id}}/{{adelante.id}}">Si</a>
+                    {% if adelante == "" %}
+                        <a class="btn btn-success" href="/">Finalizar</a>
+                    {% else %}
+                        {% if adelante %}
+                            {% if paso.tipo == 'PR' %}
+                                <a class="btn btn-success" href="/{{tema.id}}/{{adelante.id}}">Si</a>
+                            {% else %}
+                                <a class="btn btn-success" href="/{{tema.id}}/{{adelante.id}}">Siguiente</a>
+                            {% endif %}
                         {% else %}
-                            <a class="btn btn-success" href="/{{tema.id}}/{{adelante.id}}">Siguiente</a>
+                            {% ifnotequal mainChild.id paso.id %}
+                                <a class="btn btn-success" href="/">Finalizar</a>
+                            {% else %}
+                                <a class="btn btn-success" href="/{{tema.id}}/{{adelante.id}}">Finalizar</a>
+                            {% endifnotequal %}
                         {% endif %}
-                        {% else %}
-                        {% ifnotequal mainChild.id paso.id %}
-                            <a class="btn btn-success" href="/">Finalizar</a>
-                        {% else %}
-                            <a class="btn btn-success" href="/{{tema.id}}/{{adelante.id}}">Siguiente</a>
-                        {% endifnotequal %}
                     {% endif %}
 
                 </div>

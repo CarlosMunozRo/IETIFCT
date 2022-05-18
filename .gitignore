@@ -1,10 +1,11 @@
 db.sqlite3
 /env
 /__pycache__
+__pycache__/
 *.pyc
 /migrations
 *.png
 *.jpg
 *.jpeg
 migrations/
-ieti/fct/migrations/0003_paso_imagendestacada.py
+
