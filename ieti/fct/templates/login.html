@@ -4,14 +4,14 @@
 {% block body_data %}
 <div class="loginContainer">
     <div class="loginContent">
-        <h1 class="loginTitle">Iniciar Sessió</h1>
+        <h1 class="loginTitle">Iniciar sessió</h1>
         <form method="post" action="{% url 'login' %}">
             {% csrf_token %}
-            <p><label class="form-label" for="id_username">Username:</label> 
+            <p><label class="form-label" for="id_username">Nom D'Usuari:</label> 
                 <input class="formInput form-control" type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username"></p>
-            <p><label class="form-label" for="id_password">Password:</label> 
+            <p><label class="form-label" for="id_password">Contrasenya:</label> 
                 <input class="formInput form-control" type="password" name="password" autocomplete="current-password" required="" id="id_password"></p>
-            <button class="btn btn-primary  btnForm" type="submit"> Iniciar sesió </button>
+            <button class="btn btn-primary  btnForm" type="submit"> Iniciar sessió </button>
             </form>
         </form>
     </div>
