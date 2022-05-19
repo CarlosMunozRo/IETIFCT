@@ -23,6 +23,7 @@ class PasoAdmin(TreeAdmin):
 
 admin.site.register(Paso,PasoAdmin)
 admin.site.register(Tema)
+admin.site.register(User)
 
 # admin.site.register(Nodo)
 # admin.site.register(NodoPadre, NodoPadreAdmin)
