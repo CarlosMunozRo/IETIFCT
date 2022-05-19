@@ -19,7 +19,7 @@ class Tema(models.Model):
     nombre = models.CharField(max_length=200)
     pasoInicial = models.ForeignKey('Paso', on_delete=models.CASCADE, related_name='pasoInicial', null=True, blank=True)
 
-    imagenDestacada = models.ImageField(upload_to=get_temas_images_path, null=True, blank=True)
+    imagenDestacada = models.ImageField(upload_to=get_temas_images_path, null=True, blank=True, max_length=500000)
 
     def __str__(self):
         return self.nombre
@@ -38,7 +38,7 @@ class Paso(MP_Node):
         default=TipoNodo.PREGUNTA,
     )
 
-    imagenDestacada = models.ImageField(upload_to=get_pasos_images_path, null=True, blank=True)
+    imagenDestacada = models.ImageField(upload_to=get_pasos_images_path, null=True, blank=True, max_length=255)
 
     def __str__(self):
         return self.nombre
