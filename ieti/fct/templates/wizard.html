@@ -62,7 +62,10 @@
             <div class="row wizard-btn">
                 <div class="col-md-6 text-center">
                     {% if atras == "" %}
-                    <a class="btn btn-success" href="/">Finalizar</a>
+                        <a class="btn btn-success" href="/">Finalizar</a>
+
+
+
                     {% else %}
                         {% if paso.tipo == 'PR' %}
                             <a class="btn btn-secondary" href="/{{tema.id}}/{{atras.id}}">No</a>
@@ -84,11 +87,7 @@
                                 <a class="btn btn-success" href="/{{tema.id}}/{{adelante.id}}">Siguiente</a>
                             {% endif %}
                         {% else %}
-                            {% ifnotequal mainChild.id paso.id %}
-                                <a class="btn btn-success" href="/">Finalizar</a>
-                            {% else %}
-                                <a class="btn btn-success" href="/{{tema.id}}/{{adelante.id}}">Finalizar</a>
-                            {% endifnotequal %}
+                            <a class="btn btn-success" href="/">Finalizar</a>
                         {% endif %}
                     {% endif %}
 

@@ -56,6 +56,7 @@ def pasos(request,temaid,pasoid):
     selfFoundCount = 0
     firstLevel = True
 
+
     if paso.tipo == 'PR':
         for i in range(len(pasos)):
             if paso.id == pasos[i][0].id:
@@ -98,6 +99,14 @@ def pasos(request,temaid,pasoid):
                 except:
                     pass
 
+    if paso.tipo == 'PR' and prevPaso=='':
+        for i in range(len(pasos)):
+            if paso.id == pasos[i][0].id:
+                try:
+                    paso_ = pasos[i-1][0]
+                    prevPaso = paso_
+                except:
+                    pass
 
 
     contexto = {
@@ -107,6 +116,7 @@ def pasos(request,temaid,pasoid):
         'adelante': nextPaso,
         'atras': prevPaso,
         'mainChild': tema.pasoInicial,
+
     }
     return render(request,'wizard.html',contexto)
 

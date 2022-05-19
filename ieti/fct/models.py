@@ -1,14 +1,10 @@
 from django.db import models
 from treebeard.mp_tree import MP_Node
+from tinymce import models as tinymce_models
 import os
-from django.db import models
-from django.contrib.auth.models import AbstractUser
 
 
-class User(AbstractUser):
-    email = models.EmailField('email address', unique=True)
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username']
+
 
 def get_temas_images_path(instance, filename):
     return 'temas/{0}/{1}'.format(instance.nombre, filename)
@@ -17,8 +13,7 @@ def get_pasos_images_path(instance, filename):
     
     return 'temas/{0}/{1}'.format(instance.nombre, filename)
 
-# Create your models here.
-from tinymce import models as tinymce_models
+
 
 class Tema(models.Model):
     nombre = models.CharField(max_length=200)
